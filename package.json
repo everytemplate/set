@@ -1,0 +1,13 @@
+{
+  "name": "scripts",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "register:matter": "every matter register elements/data.json --json register/matter.json",
+    "deploy:set": "forge create src/MySet.sol:MySet --json --constructor-args ${SET_REG?} ${KIND_ID?} ${KIND_REV?} > register/contract.json",
+    "register:set": "every set register $(every pick contract.addr matter.hash) --json register/set.json",
+    "predeploy:set": "forge install && forge build && mkdir -p register"
+  }
+}
